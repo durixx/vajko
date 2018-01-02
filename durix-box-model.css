@@ -1,0 +1,51 @@
+/*
+DURIX BOX MODELS used for creating margins paddings and borders
+create by: Martin Ďurčo
+*/
+
+
+/*
+--------------------
+    !!!MARGIN!!!
+--------------------
+*/
+.dx-margin-auto {
+    margin: auto;
+}
+/*
+    units !!px!!
+*/
+
+/*
+    margin(top, left, bottom, right)
+*/
+.dx-margin-10px {
+    margin: 10px;
+}
+
+/*
+    margin-left
+*/
+
+.dx-margin-left-10px {
+    margin-left: 10px;
+}
+/*
+    margin-right
+*/
+
+.dx-margin-right-10px {
+    margin-right: 10px;
+}
+
+/*
+--------------------
+    !!!PADDING!!!
+--------------------
+*/
+/*
+    padding(top, left, bottom, right)
+*/
+.dx-padding-10px {
+    padding:30px;
+}

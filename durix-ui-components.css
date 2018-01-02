@@ -1,0 +1,139 @@
+/*
+---------------------------------------------
+    !!!!!!CSS FOR GRID UI!!!!!!!!!!!!!!
+---------------------------------------------
+*/
+.dx-grid {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dx-grid-header {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 50px;
+}
+
+.dx-grid-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dx-grid-footer {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 5px;
+    height: 40px;
+    background-color: #f2f2f2;
+    border: 1px solid #d9d9d9;
+    border-top: 0;
+}
+
+.dx-grid-column-header {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: #f2f2f2;
+    height: 40px;
+    border: 1px solid #d9d9d9
+}
+.dx-grid-column-body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-top: 0;
+}
+
+/*
+---------------------------------------------
+    !!!!!!SHAPES!!!!!!!!!!!!!!
+---------------------------------------------
+*/
+
+/*
+    !!!TRIANGLE!!!
+ */
+
+/*
+    !TRIANGLE LEFT!
+ */
+
+.dx-shapes-triangle-left-5px {
+    width: 0;
+    height: 0;
+    border-right: 5px solid grey;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+/*
+    !TRIANGLE RIGHT!
+ */
+
+.dx-shapes-triangle-right-5px {
+    width: 0;
+    height: 0;
+    border-left: 5px solid grey;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+/*
+    !RECTANGLE!
+ */
+
+.dx-shapes-rectangle-1x10 {
+    width: 1px;
+    height: 10px;
+    background-color: grey;
+}
+
+
+/*
+    !REFRESH ICO!
+ */
+
+.dx-ico-refresh {
+    content: url("refresh-ico-10x10.png");
+    width: 10px;
+    height: 10px;
+}
+/*
+---------------------------------------------
+    !!!!!!BG-COLORS!!!!!!!!!!!!!!
+---------------------------------------------
+*/
+
+/*Dochadzkovy system*/
+
+.dx-ds-color {
+    background-color: #0073e6;
+}
+
+.dx-black-color {
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

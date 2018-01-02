@@ -1,0 +1,316 @@
+/*
+DURIX CONTAINERS used for flex-box layout
+create by: Martin Ďurčo
+*/
+
+.dx-container-fluid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.dx-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+/*
+----------------------------------
+    !!!!FLEX ROW CONTAINERS!!!!!
+----------------------------------
+*/
+
+
+/*
+    ***FLEX-GROW***
+ based
+
+*/
+.dx-container-row-g1 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.dx-container-row-g2 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+}
+.dx-container-row-g3 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 3;
+}
+.dx-container-row-g4 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 4;
+}
+.dx-container-row-g5 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 5;
+}
+.dx-container-row-g6 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 6;
+}
+.dx-container-row-g7 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 7;
+}
+
+/*
+    ***FLEX-BASIS***
+ based
+units in !!%!!
+*/
+.dx-container-row-5p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 5%;
+}
+.dx-container-row-10p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 10%;
+}
+.dx-container-row-15p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 15%;
+}
+.dx-container-row-20p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20%;
+}
+.dx-container-row-25p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 25%;
+}
+.dx-container-row-30p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 30%;
+}
+.dx-container-row-45p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 45%;
+}
+.dx-container-row-50p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 50%;
+}
+.dx-container-row-90p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 90%;
+}
+
+
+/*
+----------------------------------
+    !!!!FLEX COLUMN CONTAINERS!!!!!
+----------------------------------
+*/
+
+/*
+    ***FLEX-BASIS***
+ based
+units in !!%!!
+*/
+.dx-container-column-80p {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+}
+.dx-container-column-90p {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 90%;
+}
+
+/*
+------------------------
+    !!!Flex column!!!
+------------------------
+*/
+
+/*
+    ***FLEX-BASIS***
+ based
+ units in !!%!!
+*/
+.dx-column-basis-auto {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+}
+.dx-column-basis-5p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 5%;
+}
+.dx-column-basis-10p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 10%;
+}
+.dx-column-basis-15p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 15%;
+}
+.dx-column-basis-20p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20%;
+}
+.dx-column-basis-25p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 25%;
+}
+.dx-column-basis-50p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 50%;
+}
+.dx-column-basis-75p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 75%;
+}
+.dx-column-basis-80p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 80%;
+}
+.dx-column-basis-90p {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 90%;
+}
+
+
+/*
+units in !!px!!
+*/
+.dx-column-basis-20px {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20px;
+}
+.dx-column-basis-36px {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 36px;
+}
+.dx-column-basis-72px {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 72px;
+}
+.dx-column-basis-90px {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 90px;
+}
+
+/*
+    ***FLEX-GROW***
+*/
+.dx-column-grow-x1 {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+/*
+-----------------------------
+!!!!!!FLEX PROPERTIES!!!!!!
+-----------------------------
+*/
+
+
+/*
+    JUSTIFY-CONTENT
+*/
+
+.dx-justify-content-start {
+    justify-content: flex-start;
+}
+.dx-justify-content-end {
+    justify-content: flex-end;
+}
+.dx-justify-content-center {
+    justify-content: center;
+}
+.dx-justify-content-space-around {
+    justify-content: space-around;
+}
+
+/*
+    ALIGN-ITEMS
+*/
+
+.dx-align-items-center {
+    align-items: center;
+}
+
+/*
+--------------------
+    !!!!SPAN!!!!
+--------------------
+*/
+
+.dx-span {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+}
+
+.dx-span.dx-center {
+    align-items: center;
+}
+
+.dx-span.dx-uppercase {
+    text-transform: uppercase;
+}
+
+.dx-span.dx-ds-color {
+    color: #0073e6;
+}
+.dx-span.dx-white-color {
+    color: white;
+}
+.dx-span.dx-h1-18p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*
+------------------------------
+    !!!!TRANSPARENT DIV!!!!
+------------------------------
+*/
+
+.dx-transparent {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 99;
+    opacity: 0.6;
+}
+
+.dx-hide {
+    display: none
+}
