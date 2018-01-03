@@ -3,6 +3,7 @@
 <head>
     <script src="jquery.js"></script>
     <script src="durix-ui.js"></script>
+    <script src="durix-ui-all.js"></script>
     <link rel="stylesheet" href="durix-containers.css"/>
     <link rel="stylesheet" href="durix-box-model.css"/>
     <link rel="stylesheet" href="durix-ui-components.css"/>
@@ -13,6 +14,14 @@
     </div>
     <script>
         $("#a").durixGrid();
+        var a = new Class();
+        var a = new DurixUiDataSource({
+            transport: {
+                read: {
+                    url:"/ads"
+                }
+            }
+        });
     </script>
 </body>
 </html>

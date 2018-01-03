@@ -1,3 +1,43 @@
+
+
+function DurixUiDataSource(obj) {
+    this.data = "xxx";
+    this.read = function () {
+        console.log("a");
+    };
+    var dataSource = {
+        _data: [],
+        _serverData: [],
+        options: {
+            schema: {
+
+            },
+            transport: {
+                read: {
+                    url: "",
+                    dataType: "json"
+                },
+                update: {
+                    url: "",
+                    dataType: "json"
+                },
+                delete: {
+                    url: "",
+                    dataType: "json"
+                }
+            }
+        }
+    };
+
+    var transp = $.extend(true, dataSource.options, obj);
+    dataSource.options = transp;
+    dataSource.read = function () {
+        console.log(a);
+    };
+    return this;
+}
+
+
 $.fn.durixGrid = function (obj) {
     var data = {
         container: this
