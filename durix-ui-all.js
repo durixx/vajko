@@ -1,19 +1,83 @@
-(function (f, define) {
-    define('kendo.core', ['jquery'], f);
-}(function () {
+
+
+
+(function ($, window, undefined) {
+    var $extend = $.extend;
+    window.durixUI= {};
+    var ret = true;
+
     var __meta__ = {
         id: 'core',
         name: 'Core',
-        category: 'framework',
-        description: 'The core of the Kendo framework.'
+        description: 'Zaklad durixUI'
     };
-    (function ($, window, undefined) {
-        var kendo = window.kendo = window.kendo || {};
-        function Class() {
-        }
-        kendo.xx = "xx";
-    }(jQuery, window));
-    return window.kendo;
-}, typeof define == 'function' && define.amd ? define : function (a1, a2, a3) {
-    (a3 || a2)();
-}));
+    durixUI.Class = function() {
+        var init = {};
+        this.decideWhatToReturn = function (meta, data) {
+            if(ret) {
+                return meta
+            }else {
+                return data;
+            }
+        };
+
+        return this.decideWhatToReturn(this, init);
+    };
+
+
+    (function (root) {
+        (function () {
+            var __meta__ = {
+                id: 'observable',
+                name: 'Observable',
+                description: 'Objekt Observable sluziaci na bindovanie a pridelovanie Eventov na objekt'
+            };
+
+            root.Observable = function () {
+                var init = {};
+                this.decideWhatToReturn(this, init);
+            };
+
+            var that = root.Observable;
+           that.prototype = new root.Class();
+           that.prototype.constructor = that;
+
+
+            
+        })();
+
+        (function () {
+            var __meta__ = {
+                id: 'dataSource',
+                name: 'data_source',
+                description: ''
+            };
+
+            root.dataSource = {
+            };
+            var that = root.dataSource;
+
+            (function (parent) {
+                var __meta__ = {
+                    id: 'data',
+                    name: 'Data',
+                    description: ''
+                };
+
+                parent.Data = function () {
+                    var data = {};
+                    return this.decideWhatToReturn(this, data);
+                };
+
+                var that = parent.Data;
+                that.prototype = new root.Class();
+                that.prototype.constructor = this;
+            })(that)
+
+        })()
+        
+
+    })(window.durixUI);
+    ret = false;
+    console.log("finished");
+})($, window);
