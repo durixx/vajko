@@ -18,8 +18,18 @@
 
 
 
-        var ob = new durixUI.dataSource.Data();
-        console.log(ob);
+        var ob = new durixUI.data.DataSource({
+            transport: {
+                create: {
+                    url: "skuska"
+
+                }
+            }
+        });
+        var ob2 = new durixUI.data.DataSource({
+
+        });
+
 
 
 
