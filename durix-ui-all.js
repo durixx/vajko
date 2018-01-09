@@ -3,6 +3,7 @@
 
 (function ($, window, undefined) {
     var $extend = $.extend;
+    var $ajax = $.ajax;
     window.durixUI= {};
 
 
@@ -12,6 +13,20 @@
         description: 'Zaklad durixUI'
     };
     durixUI.Class = function() {
+        var parent = this;
+        var operations = $extend(operations, {
+           ajax: function (e) {
+               e = $extend(e, {
+                   success: function (e) {
+                       console.log(e);
+                   }
+               });
+               $ajax(e);
+           } 
+        });
+        this.data = $extend(this.data, operations);
+        
+
 
     };
 
@@ -66,6 +81,7 @@
                 };
 
                 parent.DataSource = function (e) {
+                    var parent = this;
                     var data = {
 
                     };
@@ -95,20 +111,45 @@
                             if(!this._hasTransportCreateDataType() && this._hasTransportCreateUrl()) {
                                 data.transport.create.dataType = "json";
                             }
+
+                            return this._hasTransportCreateDataType() && this._hasTransportCreateUrl();
                         }
 
                     };
-                    this._init = function () {
-                          return Object.create(new init());
+                    this.fn = {
+                        init: function (optionals) {
+
+                            var o = Object.create(new init());
+                            this._performQuery({}, optionals);
+                            o.__proto__ = $extend(o.__proto__, this);
+                            console.log(this);
+                            return o;
+                        },
+                        _performQuery: function (type, isNew) {
+                            if(isNew) {
+                                this._performCreateQuery(data)
+                            }
+                        },
+                        _performCreateQuery: function (data) {
+                            if(parent.constructorInit._hasTransportCreate()) {
+                                var ajaxData = {
+                                    method: 'GET',
+                                    url: data.transport.create.url,
+                                    dataType: data.transport.create.dataType
+                                };
+                                parent.data.ajax(ajaxData)
+                            }
+                        }
                     };
 
-                    return this._init();
-                };
 
+                    return this.fn.init(true);
+                };
+                console.log(parent, "parent");
                 var that = parent.DataSource;
                 that.prototype = new root.Class();
                 that.prototype.constructor = that;
-                that.prototype.object = {}
+
 
             })(that)
 
