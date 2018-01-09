@@ -19,8 +19,6 @@
 
     }
 
-    i.prototype = new durixUI.Class();
-    i.prototype.constructor = i;
     function init() {
 
     }
@@ -74,8 +72,6 @@
 
                     data = $extend (data, e);
                     this.constructorInit =  {
-
-
                         _hasTransport: function () {
                             return data.transport !== undefined;
                         },
@@ -103,20 +99,10 @@
 
                     };
                     this._init = function () {
-                          this.constructorInit._initTransportCreate();
+                          return Object.create(new init());
                     };
-                    this._init();
-                    //console.log(data);
-                    var aaa = "ada";
-                    var inicialize = new init(aaa);
-                    i.prototype.red = function () {
 
-                    };
-                    
-                    inicialize.transport = {};
-                    inicialize._data = {};
-
-                    return inicialize;
+                    return this._init();
                 };
 
                 var that = parent.DataSource;
@@ -133,3 +119,19 @@
     ret = false;
     console.log("finished");
 })($, window);
+
+
+
+
+//var y = Object.create(i);
+//var x = Object.create(new init());
+
+//x.prop = 5;
+//x.__proto__.read = function () {
+
+
+
+
+
+
+
