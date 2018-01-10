@@ -6,7 +6,6 @@
     var $ajax = $.ajax;
     window.durixUI= {};
 
-
     var __meta__ = {
         id: 'core',
         name: 'Core',
@@ -16,7 +15,7 @@
 
         var parent = this;
         var operations = $extend(operations, {
-            ajax: function (e, scope) {
+            ajax: function (e, scope, type) {
                 e = $extend(e, {
                     success: function (data, success, status) {
 
@@ -26,20 +25,22 @@
                     }
                 });
                 $ajax(e).done(function(data, success, status) {
-                    scope._afterAjax(status);
+                    scope._afterAjax(status, type);
                 });
             }
         });
         this.data = $extend(this.data, operations);
-        
 
-
+        function guid() {
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                s4() + '-' + s4() + s4() + s4();
+        }
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
     };
-
-
-
-
-
     (function (root) {
         (function () {
             var __meta__ = {
@@ -47,6 +48,7 @@
                 name: 'Observable',
                 description: 'Objekt Observable sluziaci na bindovanie a pridelovanie Eventov na objekt'
             };
+
             function i() {
 
             }
@@ -67,17 +69,22 @@
 
             (function () {
                 var __meta__ = {
-                    id: 'dataSource',
-                    name: 'data_source',
+                    id: 'data',
+                    name: 'data',
                     description: ''
                 };
+
+                var TYPE_CREATE = "create";
+                var REQUEST_GET = "get";
+                var DATA_TYPE_JSON = "json";
+                var STATUS_OK = 200;
 
                 root.data = {
                 };
                 var that = root.data;
-
-
                 (function (parent) {
+
+
                     var __meta__ = {
                         id: 'dataSource',
                         name: 'Data_Source',
@@ -85,6 +92,7 @@
                     };
 
                     parent.DataSource = function (e) {
+
                         var o = Object.create(new init());
                         var parent = this;
                         var isNew = true;
@@ -118,7 +126,7 @@
                             },
                             _initTransportCreate: function () {
                                 if(!this._hasTransportCreateDataType() && this._hasTransportCreateUrl()) {
-                                    data.transport.create.dataType = "json";
+                                    data.transport.create.dataType = DATA_TYPE_JSON;
                                 }
 
                                 return this._hasTransportCreateDataType() && this._hasTransportCreateUrl();
@@ -130,38 +138,53 @@
                                 var optional = $extend(optional, e);
 
                                 this.read();
+
                                 o._pristineData = [];
-                                o._data = Object.create(new init());
+                                o.transport = {};
+                                o._data = Object.create(new init(2));
                                 o.__proto__ = $extend(o.__proto__, this);
+
                                 console.log(this);
                                 return o;
                             },
                             read: function () {
-                                this._performQuery({}, isNew);
+                                this._performQuery(TYPE_CREATE, isNew);
                                 isNew = false;
                             },
                             _performQuery: function (type, isNew) {
-                                if(isNew) {
-                                    this._performCreateQuery(data)
+                                if(isNew && type === TYPE_CREATE) {
+                                    this._performCreateQuery(data, type)
                                 }
                             },
-                            _performCreateQuery: function (data) {
+                            _performCreateQuery: function (data, type) {
                                 if(parent.constructorInit._initTransportCreate()) {
                                     var ajaxData = {
-                                        method: 'GET',
+                                        method: data.transport.create.dataType,
                                         url: data.transport.create.url,
                                         dataType: data.transport.create.dataType
                                     };
-                                    var result = parent.data.ajax(ajaxData, this);
+                                    var result = parent.data.ajax(ajaxData, this, type);
 
                                 }else if(!parent.constructorInit._hasTransport() && parent.constructorInit._hasData()) {
 
                                 }
                             },
-                            _afterAjax: function (status) {
+                            _afterAjax: function (status, type) {
                                 console.log(status, "funguje?");
-                                if(status.status === 200) {
+                                if(status.status === STATUS_OK) {
                                     o._pristineData = status.responseJSON;
+                                    o._data = Object.create(new init());
+                                    o._data = $extend(o._data, o._pristineData);
+                                    o._data.length = o._pristineData.length;
+                                    for(var i = 0; i < o._data.length; i++) {
+                                        //o._data.i.uid = guid();
+                                    }
+                                    if(type === TYPE_CREATE) {
+                                        o.transport.options = {};
+                                        console.log(data);
+                                        o.transport.options.read = data.transport.create;
+
+                                    }
                                 }
                             }
                         };
